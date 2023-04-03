@@ -8,17 +8,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="360dp"
         app:cardCornerRadius="16dp"
+        android:visibility="visible"
         app:cardBackgroundColor="@color/holo_blue_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+
         <LinearLayout
-            android:layout_width="45dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_fold">
 
@@ -60,115 +65,294 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
+
+        <!--<androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/btn_fold">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome!"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To Livepad"
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:id="@+id/constraint_layout"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
 
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <LinearLayout
                 android:id="@+id/profile_image"
-                android:layout_width="45dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="30dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/tony"
-                app:civ_border_color="#FF000000"
-                app:civ_border_width="2dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
                 app:layout_constraintHorizontal_bias="0.52"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tony"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/txt_agent_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Tony Stark"
+                    android:visibility="gone"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/home_btn"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/home"
-                android:background="@color/holo_blue_light"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintHorizontal_bias="0.52"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_image">
+
+                <ImageButton
+
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@color/holo_blue_light"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/home" />
+
+                <TextView
+                    android:id="@+id/txt_home"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:visibility="gone"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/reminder_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_btn">
 
             <ImageButton
-                android:id="@+id/reminder_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="16dp"
                 android:background="@color/holo_blue_light"
                 android:scaleType="centerCrop"
                 android:src="@drawable/reminder"
-                app:layout_constraintEnd_toEndOf="parent"
+                 />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txt_notification"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notification"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/notification_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/reminder_btn">
 
             <ImageButton
-                android:id="@+id/notification_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
                 android:background="@color/holo_blue_light"
                 android:src="@drawable/message"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/reminder_btn" />
+                 />
 
-            <ImageButton
+                <TextView
+                    android:id="@+id/txt_message"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Message"
+                    android:visibility="gone"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/upcoming_tour_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notification_btn">
+            <ImageButton
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="16dp"
                 android:background="@color/holo_blue_light"
                 android:scaleType="centerCrop"
                 android:src="@drawable/upcoming"
-                app:layout_constraintEnd_toEndOf="parent"
+                 />
+                <TextView
+                    android:id="@+id/txt_upcoming_tours"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upcomming \nTours"
+                    android:visibility="gone"
+
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/completed_tour_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/notification_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/upcoming_tour_btn">
 
             <ImageButton
-                android:id="@+id/completed_tour_btn"
+
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="16dp"
                 android:background="@color/holo_blue_light"
                 android:scaleType="centerCrop"
                 android:src="@drawable/completed_task"
-                app:layout_constraintEnd_toEndOf="parent"
+                 />
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/txt_completed_tours"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Completed \nTours"
+
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mode_btn"
+                android:background="@color/holo_blue_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/upcoming_tour_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/completed_tour_btn">
+
 
             <ImageButton
-                android:background="@color/holo_blue_light"
-                android:id="@+id/mode_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/mode"
-                app:layout_constraintEnd_toEndOf="parent"
+                 />
+
+                <TextView
+                    android:id="@+id/txt_daymode"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Day Mode"
+                    android:visibility="gone"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/logout_btn"
+                android:background="@color/holo_blue_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/completed_tour_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/mode_btn">
+
 
             <ImageButton
-                android:id="@+id/logout_btn"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:background="@color/holo_blue_light"
-                android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/login_btn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mode_btn" />
+                 />
+
+                <TextView
+                    android:id="@+id/txt_logout"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
+                    android:visibility="gone"
+                    android:textStyle="bold"/>
+
+
+            </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
+
+
+
+        <!--<LinearLayout
             android:id="@+id/linear_layout"
             android:visibility="gone"
             android:layout_width="wrap_content"
@@ -245,7 +429,8 @@
                 android:text="Sign Out!"
                 android:textStyle="bold"/>
 
-        </LinearLayout>
+        </LinearLayout>-->
+
 
 
     </androidx.cardview.widget.CardView>
@@ -277,4 +462,5 @@
             android:visibility="visible"/>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
